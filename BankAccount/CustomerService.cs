@@ -26,6 +26,7 @@ public class CustomerService
     private void MenuScreen()
     {
         Console.Write("Please pick your option: \n1. Create New Account \n2. Add Fund \n3. Withdraw Fund \n4. Check Account Info \nPick: ");
+
         int option;
         bool isNumber = Int32.TryParse(Console.ReadLine(), out option); // To avoid entering characters
         if (!isNumber) option = 0;
@@ -70,7 +71,7 @@ public class CustomerService
                 Console.WriteLine("Account created successfully!");
                 Console.Write($"Your ID is: {uniqueID}.");
                 custAccount.CustomerID = uniqueID; id = newID;
-                Console.ReadKey(); Run(); break;
+                Console.ReadKey(); Run();
             }
         }
     }
@@ -83,6 +84,7 @@ public class CustomerService
             Console.WriteLine("\n-- TOP UP --");
             Console.Write("Please enter the Amount: ");
             double newAmount = Convert.ToDouble(Console.ReadLine());
+
             if (newAmount < 10000 || newAmount > 50000)
             //Customer can only Add between 1000 and 50000
             {
@@ -93,7 +95,7 @@ public class CustomerService
             {
                 custAccount.InitialFund += newAmount;
                 Console.WriteLine($"{newAmount} added to your account!\nYour balance is {custAccount.InitialFund}.");
-                Console.ReadKey(); Run(); break;
+                Console.ReadKey(); Run();
             }
         }
     }
@@ -112,7 +114,6 @@ public class CustomerService
             {
                 Console.Write("> ERROR: \"You do not have enough money to withdraw!\"");
                 Console.ReadKey(); Console.WriteLine(); Run();
-                continue;
             }
 
             // Customer can only Withdraw the money they have and it have to be between 10000 and 50000
@@ -125,7 +126,7 @@ public class CustomerService
             {
                 custAccount.InitialFund -= withdrawAmount;
                 Console.WriteLine($"You withdrew {withdrawAmount}!\nYour balance is {custAccount.InitialFund}.");
-                Console.ReadKey(); Run(); break;
+                Console.ReadKey(); Run();
             }
         }
     }
