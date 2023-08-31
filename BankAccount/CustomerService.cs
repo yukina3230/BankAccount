@@ -8,7 +8,7 @@ namespace BankAccount;
 public class CustomerService
 {
     private int id;
-    public CustomerAccount custAccount { get; set; }
+    private CustomerAccount custAccount;
 
     public CustomerService()
     {
